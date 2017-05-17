@@ -41,9 +41,10 @@ tex.write("""\\pdfoutput=1
 tsv.write("Name\tAuthorCode\tRefereeCode\n")
 
 codes = []
-
+names = []
 for name in cls:
     name = name.strip()
+    names.append(name)
     nameb = bytes(name, 'utf-8')
     myhash = numpy.fromstring(hashlib.sha512(nameb).digest(), dtype='uint16')
     autcode = str(myhash[0]).zfill(5)
@@ -70,4 +71,5 @@ tex.close()
 tsv.close()
 cls.close()
 
-assert len(set(codes)) == 2*len(cls), "DUPLICATE FOUND!  RE-RUN!"
+assert len(set(codes)) == 2*len(names), "DUPLICATE FOUND!  RE-RUN!"
+

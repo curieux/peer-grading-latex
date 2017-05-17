@@ -1,0 +1,532 @@
+\pdfoutput=1
+\documentclass[10pt,twoside]{article}
+\usepackage{microtype}
+\usepackage{tikz}
+\usepackage{amssymb, amsmath, mathrsfs, graphicx} % remove unneeded packages 
+\usepackage{fancyhdr, lastpage, titlesec}
+\usepackage[colorlinks]{hyperref}
+\usepackage[margin=1in]{geometry}
+\pagestyle{fancy}
+%\setlength{\columnsep}{2em}
+\fancyhead[LO,RE]{Math 275, A. Smith}
+\fancyhead[RO,LE]{Page \thepage\ of \pageref{LastPage}}
+\chead{\textbf{Test 1. Referee Rubric}}
+\cfoot{}
+%\parindent 0em
+\newcommand{\A}[1]{%
+   \begin{tikzpicture}
+     \node[draw,circle,inner sep=1pt] {#1};
+   \end{tikzpicture}}
+\newcommand{\E}[1]{%
+   \begin{tikzpicture}
+     \node[draw,rectangle, inner sep=5pt] {#1};
+   \end{tikzpicture}}
+
+
+\newcommand{\blank}[1]{\underline{\hspace{#1}}}
+\renewcommand{\labelenumi}{\textbf{\thesection.\arabic{enumi}.}}
+\newcommand{\las}{\href{http://uwstout.courses.wisconsin.edu/d2l/shibbolethSSO/wayf.d2l}{Learn@UW-Stout }}
+\newcommand{\ww}{\href{https://webwork.uwstout.edu/webwork2}{WeBWorK }}
+
+
+\titleformat{\section}[runin]
+{\large\bfseries}
+{Part \thesection.}{0pt}{}
+\titlespacing{\section}
+{\parindent}{2em}{1em}
+
+
+
+\newcommand{\edit}[1]{{\color{orange} {\tt((}#1{\tt))}}}
+\begin{document}
+
+\setcounter{section}{-1}
+
+
+
+\section{~Referee Instructions}
+To referee, follow this procedure
+\begin{enumerate}
+
+
+\item \textbf{Read this rubic} \emph{first} so you are sure you understand the problem
+
+\item If you find an error in this rubric, \textbf{tell me immediately} so I
+can fix it for everyone.
+
+\item Read the author's solution on its own, without referring to the rubric
+directly.  Ask yourself ``Did they communicate what they are doing, and why?''
+and ``Is this complete, or is there something they forgot to mention?''  You
+are a human, not a computer; however, you should \emph{not} have to extrapolate
+their intent --- do not think for them!  If you know a solution is correct, but
+not for the reasons stated, then make a note of it.  \textbf{Make comments, as
+a human, about what is and isn't clear.}  
+
+\item Read each solution a second time.  This time, follow the rubric to assign a \textbf{numerical score to each
+problem}.  
+
+\item Write the \textbf{numerical scores and your Referee Code} on the author's
+submission.
+
+\item I will personally review all of these comments and scores.  Good commentary and correct grades are worth 4 points to the Referee.
+
+\item Sometimes, people find solutions that are completely unlike what I was expecting.  If you find that the solution does not fit the rubric at all, please make a note of where it stops making sense to you, and do not assign a number.
+
+\end{enumerate}
+
+\newpage
+\section{ }
+{\color{red}Perform row-reduction to solve this system.  (Hint!  The final solution is $(x,y,z) =
+(4,6,8)$.  You still need to do the work, though.)
+\[
+\begin{cases}
+4x + 24y +0z = 160\\
+13x + 47y - 6z = 286\\
+12x + 78y + 1z = 524\\
+\end{cases}\]
+}
+
+Convert to augmented matrix and row-reduce.  Here's one way.
+\[\begin{pmatrix}
+4 & 24 & 0 & 160\\
+13 & 47 & -6 & 286\\
+12 & 78 & 1 & 524
+\end{pmatrix}, \qquad\text{divide row1 by 4}
+\]
+\[\begin{pmatrix}
+1 & 6 & 0 & 40\\
+13 & 47 & -6 & 286\\
+12 & 78 & 1 & 524
+\end{pmatrix} \qquad\text{subtract row3 from row2}\]
+\[\begin{pmatrix}
+1 & 6 & 0 & 40\\
+ 1 & -31 & -7 & -238\\
+12 & 78 & 1 & 524
+\end{pmatrix}\qquad\text{replace row3 with row3-12*row1}\]
+\[\begin{pmatrix}
+1 & 6 & 0 & 40\\
+1 & -31 & -7 & -238\\
+0 & 6 & 1 & 44
+\end{pmatrix} \qquad\text{subtract row1 from row2}\]
+\[\begin{pmatrix}
+1 & 6 & 0 & 40\\
+0 & -37 & -7 & -278\\
+0 & 6 & 1 & 44
+\end{pmatrix} \qquad\text{multiply row2 by 6, and row3 by 37}\]
+\[\begin{pmatrix}
+1 & 6 & 0 & 40\\
+0 & -222 & -42 & -1668\\
+0 & 222 & 37 & 1628
+\end{pmatrix} \qquad\text{add row2 to row3}\]
+\[\begin{pmatrix}
+1 & 6 & 0 & 40\\
+0 & -222 & -42 & -1668\\
+0 & 0 & -5 & -40
+\end{pmatrix} \qquad\text{add row2 to row3}\]
+\[\begin{pmatrix}
+1 & 6 & 0 & 40\\
+0 & -222 & -42 & -1668\\
+0 & 0 & -5 & -40
+\end{pmatrix} \qquad\text{divide row3 by $-5$}\]
+\[\begin{pmatrix}
+1 & 6 & 0 & 40\\
+0 & -222 & -42 & -1668\\
+0 & 0 & 1 & 8
+\end{pmatrix} \qquad\text{add 42 row3 to row2}\]
+\[\begin{pmatrix}
+1 & 6 & 0 & 40\\
+0 & -222 & 0 & -1332\\
+0 & 0 & 1 & 8
+\end{pmatrix} \qquad\text{divide row2 by -222}\]
+\[\begin{pmatrix}
+1 & 6 & 0 & 40\\
+0 & 1 & 0 & 6\\
+0 & 0 & 1 & 8
+\end{pmatrix} \qquad\text{subtract 6row2 from row1}\]
+\[\begin{pmatrix}
+1 & 0 & 0 & 4\\
+0 & 1 & 0 & 6\\
+0 & 0 & 1 & 8
+\end{pmatrix}.\]
+Therefore, the solution $(x,y,z) = (4,6,8)$.
+
+
+\begin{itemize}
+\item\textcolor{blue}{This problem is worth 5 points.}
+\item\textcolor{blue}{Subtract 2 points they did something other than
+row-reduction.}
+\item\textcolor{blue}{Subtract 1 point they did not end with 
+\[ \begin{pmatrix}1 & 0 & 0 & 4\\0 & 1 & 0 & 6\\ 0 & 0 & 1 & 8\\
+\end{pmatrix}\]}
+\item\textcolor{blue}{Subtract 1 point for each step of row-reduction where
+something went wrong with the arithmetic.  Referee should check if something went wrong by verifying that
+$(4,6,8)$ satisfies each of the equations.}
+\item \textcolor{blue}{If they caught an arithmetric error, and noted it, but
+were unable to fix it, credit back 1 point.  (can only be used once.)}
+\end{itemize}
+
+
+\section{ }
+{\color{red}Write down all of the $3 \times 4$ reduced row-echelon form matrices that have
+rank 2.\\
+(Use $\ast$ to indicate entries that could be any number.)}
+
+Rank 2 means we have to choose the position of 2 pivots.  There are only 4
+columns, so there are $\binom{4}{2} = 6$ possible forms.
+\[
+\begin{pmatrix}
+1 & 0 & * & *\\
+0 & 1 & * & *\\
+0 & 0 & 0 & 0
+\end{pmatrix},\qquad
+\begin{pmatrix}
+1 & * & 0 & *\\
+0 & 0 & 1 & *\\
+0 & 0 & 0 & 0
+\end{pmatrix},\qquad
+\begin{pmatrix}
+1 & * & * & 0\\
+0 & 0 & 0 & 1\\
+0 & 0 & 0 & 0
+\end{pmatrix}\]
+\[
+\begin{pmatrix}
+0 & 1 & 0 & *\\
+0 & 0 & 1 & *\\
+0 & 0 & 0 & 0
+\end{pmatrix},\qquad
+\begin{pmatrix}
+0 & 1 & * & 0\\
+0 & 0 & 0 & 1\\
+0 & 0 & 0 & 0
+\end{pmatrix},\qquad
+\begin{pmatrix}
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1\\
+0 & 0 & 0 & 0
+\end{pmatrix}\]
+
+\begin{itemize}
+\item\textcolor{blue}{This problem is worth 2 points.}
+\item\textcolor{blue}{Subtract 0.5 point for each matrix that is not in
+RREF.}
+\item\textcolor{blue}{Subtract 0.25 point for each matrix that is missing
+$\ast$'s where they should be.}
+\item\textcolor{blue}{Subtract 0.5 point for each missing case.}
+\end{itemize}
+
+
+\section{ }
+{\color{red}Suppose that $A$ is a $4 \times 4$ matrix for which the following procedure
+yields $I$.  First, swap $\rho_2$ and $\rho_4$.  Second, replace
+$\rho_1$ with $\rho_1 + 5\rho_3$.  Third, multiply $\rho_3$ by 6, and divide
+$\rho_1$ by 5.  Finally, replace $\rho_4$ with $\rho_4 - 3 \rho_1$.
+Recall that these row-operations can be un-done in the correct order, to change $I$ back to $A$.
+Find the matrix $A$.
+}
+
+
+The first row-operation is 
+\[
+E_1 = \begin{pmatrix}
+1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1\\
+0 & 0 & 1 & 0\\
+0 & 1 & 0 & 0
+\end{pmatrix}\]
+The second row-operation is 
+\[
+E_2 = \begin{pmatrix}
+1 & 0 & 5 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}\]
+The third row-operation is 
+\[
+E_3 = \begin{pmatrix}
+\frac15 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 6 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}\]
+The fourth row-operation is 
+\[
+E_4 = \begin{pmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+-3 & 0 & 0 & 1
+\end{pmatrix}\]
+And, we have 
+\[ E_4E_3E_2E_1 A = I\]
+Therefore,
+\[ A = E_1^{-1}E_2^{-1}E_3^{-1}E_4^{-1}I \]
+
+Hence, undoing each of the above operations in the correct order, we have
+\[
+A =
+\begin{pmatrix}
+1 & 0 & 0 & 0\\
+0 & 0 & 0 & 1\\
+0 & 0 & 1 & 0\\
+0 & 1 & 0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & -5 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+5 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & \frac16 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
++3 & 0 & 0 & 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+5 & 0 & -\frac56 & 0\\
+3 & 0 & 0 & 1\\
+0 & 0 & \frac16 & 0\\
+0 & 1 & 0 & 0
+\end{pmatrix}
+\]
+
+\begin{itemize}
+\item\textcolor{blue}{This problem is worth 3 points.}
+\item\textcolor{blue}{Subtract 1 point for not converting the row-operations to
+elementary matrices.}
+\item\textcolor{blue}{Subtract 0.5 points for each incorrect elementary
+matrix.}
+\item\textcolor{blue}{Subtract 1 point for not un-doing each row-operations to
+find its respective inverse.  (Note!  It is fair to jump straight to this,
+without writing down the original row-ops).}
+\item\textcolor{blue}{Subtract 0.5 points for each incorrect inverse.}
+\item\textcolor{blue}{Subtract 1 point for not multiplying the inverses in the
+correct order}
+\item\textcolor{blue}{Subtract 0.5 points (total) for arithmetic errors in
+matrix multiplication.}
+\end{itemize}
+
+\section{ }
+{\color{red}Suppose that $A$ is a $3 \times 3$ matrix and that $E_1, E_2, \ldots, E_k$ are
+elementary matrices such that 
+\[ 
+ E_k \cdots E_2 E_1 A =  R = \begin{pmatrix}
+1 & 0 & \frac15\\
+0 & 1 & -3\\
+0 & 0 & 0
+\end{pmatrix},\quad\text{and}\quad
+E_k \cdots E_2 E_1 
+=
+ \begin{pmatrix}
+4 & 2 & 8\\
+8 & 1 & 3\\
+0 & 1 & 1
+\end{pmatrix}.
+\]}
+\begin{enumerate}
+\item
+{\color{red}Find the solution of the system $A\vec{x}=\vec{0}$ in parametric form.}
+
+The solution to $A\vec{x}=\vec{0}$ is the same as the solution to $R \vec{x} =
+\vec{0}$, since row operations don't change the 0s.  Therefore, using $x_3$ as
+a free variable, the solution is
+\[ 
+\begin{pmatrix}
+x_1\\x_2\\x_3
+\end{pmatrix}
+= \begin{pmatrix}
+- \frac15 \\ 3 \\ 1\end{pmatrix}t
+\]
+This is a line through the origin.  By rescaling $t$, it could be written
+without fractions as
+\[ 
+\begin{pmatrix}
+x_1\\x_2\\x_3
+\end{pmatrix}
+= \begin{pmatrix}
+- 1 \\ 15 \\ 5\end{pmatrix}t
+\]
+
+
+\begin{itemize}
+\item\textcolor{blue}{This sub-problem is worth 2 points.}
+\item\textcolor{blue}{Subtract 1 point for not writing $Rx=0$ or equivalent, or
+for not recognizing that $Ax=0$ and $Rx=0$ have the same solution.}
+\item\textcolor{blue}{Subtract 1 point for completely incorrect parametric
+form.}
+\item\textcolor{blue}{Subtract 0.5 points for $\pm$ mistakes in the
+parametric form.}
+\end{itemize}
+
+
+\item 
+{\color{red}Write the solution to the inhomogeneous system 
+\[ A \begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix} = \begin{pmatrix}\frac12 \\ -3 \\ 3\end{pmatrix},\]
+or explain precisely why no solution exists.
+}
+
+The solution to $A\vec{x}=\vec{b}$ is the same as the solution to $R \vec{x} =
+\vec{c}$ where $\vec{c} = 
+E_k\cdots E_2E_1 \vec{b}$.  That vector is
+\[ 
+\vec{c} = E_k \cdots E_2 E_1\vec{b} 
+=
+ \begin{pmatrix}
+4 & 2 & 8\\
+8 & 1 & 3\\
+0 & 1 & 1
+\end{pmatrix}
+\begin{pmatrix}\frac12 \\ -3 \\ 3\end{pmatrix}
+= 
+\begin{pmatrix}
+20 \\ 10 \\ 0
+\end{pmatrix}\]
+So, we are solving the system
+\[
+\begin{cases}
+x_1 + 0x_2 + \frac15 x_3 = 20\\
+x_2 -3x_3 = 10\\
+0 = 0
+\end{cases}\]
+The solution is 
+\[ 
+\begin{pmatrix}
+x_1\\x_2\\x_3
+\end{pmatrix}
+= 
+\begin{pmatrix}20\\10\\0\end{pmatrix}+
+\begin{pmatrix}
+- \frac15 \\ 3 \\ 1\end{pmatrix}t
+\]
+
+\begin{itemize}
+\item\textcolor{blue}{This sub-problem is worth 2 points.}
+\item\textcolor{blue}{Subtract 1 point for not finding $c = (20,10,0)$ at
+all.}
+\item\textcolor{blue}{Subtract 0.5 point for arithmetic mistake in finding
+$c$.}
+\item\textcolor{blue}{Subtract 1 point for not writing $Rx=c$ or equivalent, or
+for not recognizing that $Ax=b$ and $Rx=c$ have the same solution.}
+\item\textcolor{blue}{Subtract 1 point for completely incorrect parametric
+form.}
+\item\textcolor{blue}{Subtract 0.5 points for $\pm$ arithmetic mistakes in the
+parametric form.}
+\end{itemize}
+
+
+\item 
+{\color{red}Write the solution to the inhomogeneous system 
+\[ A \begin{pmatrix}
+x_1 \\ x_2 \\ x_3
+\end{pmatrix} =  \begin{pmatrix}1 \\ 39 \\ -9\end{pmatrix},\]
+or explain precisely why no solution exists.
+}
+\end{enumerate}
+
+The solution to $A\vec{x}=\vec{b}$ is the same as the solution to $R \vec{x} =
+\vec{c}$ where $\vec{c} = 
+E_k\cdots E_2E_1 \vec{b}$.  That vector is
+\[ 
+\vec{c} = E_k \cdots E_2 E_1\vec{b} 
+=
+ \begin{pmatrix}
+4 & 2 & 8\\
+8 & 1 & 3\\
+0 & 1 & 1
+\end{pmatrix}
+\begin{pmatrix}1 \\ 39 \\ -9\end{pmatrix}
+=
+\begin{pmatrix}
+10 \\ 20 \\ 30 
+\end{pmatrix}\]
+
+Note that $R\vec{x} = \vec{c}$ has the row $0 = 30$.  The system in
+inconsistent -- there is not solution.
+
+\begin{itemize}
+\item\textcolor{blue}{This sub-problem is worth 1 point.}
+\item\textcolor{blue}{Subtract 0.5 point for not finding $c = (10,20,30)$ at
+all.}
+\item\textcolor{blue}{Subtract 0.25 point for arithmetic mistake in finding
+$c$.}
+\item\textcolor{blue}{Subtract 0.75 point for not recognizing the inconsistent
+system.}
+\end{itemize}
+
+
+\section{ }
+{\color{red}The following pictures show two lines, corresponding to a system of two linear equations
+in two variables, $[A|b]$.
+For each picture, answer these questions:}
+\begin{itemize}
+\item {\color{red}Is the system homogeneous or inhomogeneous?}
+\item {\color{red}How many solutions does the system have?}
+\item {\color{red}What is the rank of the $2 \times 2$ matrix $A$?}
+\item {\color{red}What is the rank of the $2 \times 3$ augmented matrix $[A|b]$?}
+\end{itemize} 
+
+(removed images for brevity)
+
+The first image is two identical lines through the origin.
+This would arise from a system of the form 
+\[\begin{pmatrix} 1 & * &|0 \\ 0 & 0 &|0 \end{pmatrix}\]
+This is homogeneous (the solution contains $(0,0)$), and the solution is a line
+(1-dimensional, with infinitely many solutions).  $A$ has rank 1, and $[A|b]$
+also has rank 1, as seen above.
+
+The second image is parallel identical lines. 
+This would arise from a system of the form 
+\[\begin{pmatrix} 1 & * &|0 \\ 0 & 0 & |1 \end{pmatrix}\]
+This is inhomogeneous (the solution does not contain $(0,0)$), and the solution
+is a empty.  There are no solutions.
+$A$ has rank 1, and $[A|b]$
+has rank 2, as seen above.
+
+The third image is two identical lines that miss the origin.
+This would arise from a system of the form 
+\[\begin{pmatrix} 1 & * &|* \\ 0 & 0 & |0 \end{pmatrix}\]
+This is inhomogeneous (the solution does not contain $(0,0)$), and the solution
+is a line (1-dimensional, with infinitely many solutions). 
+$A$ has rank 1, and $[A|b]$
+also has rank 1, as seen above.
+
+The fourth image is two lines that cross at a point that is not the origin.
+This would arise from a system of the form 
+\[\begin{pmatrix} 1 & 0 &|* \\ 0 & 1 & |* \end{pmatrix}\]
+This is inhomogeneous (the solution does not contain $(0,0)$), and the solution
+is a single point (0-dimensional, with exactly one solution).
+$A$ has rank 2, and $[A|b]$
+also has rank 2, as seen above.
+
+
+\begin{itemize}
+\item\textcolor{blue}{This sub-problem is worth 5 points.}
+\item\textcolor{blue}{Subtract 0.5 point for each incorrect
+homogeneous/inhomogenous}
+\item\textcolor{blue}{Subtract 0.5 point each incorrect statement about the
+number of solutions.  In this problem, it is acceptable to say
+``1-dimensional'' or ``infinitely many'' interchangeably.  Also, one may say
+``0-dimensional'' or ``exactly one'' interchangeably.}
+\item\textcolor{blue}{Subtract 0.5 point each incorrect rank statement.}
+\item\textcolor{blue}{Add back 1 point if someone mis-stated the ranks, but
+write an example system or wrote a parametrization of the solution correctly.
+This can be used only once.}
+\end{itemize}
+
+
+
+
+%%%% END %%%%
+\end{document}
+
