@@ -1,5 +1,5 @@
-Potter, Harry
 Grainger, Hermione
-Weasley, Ronald
-Malfoy, Draco
 Longbottom, Neville
+Malfoy, Draco
+Potter, Harry
+Weasley, Ronald
